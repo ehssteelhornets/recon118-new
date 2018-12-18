@@ -8,7 +8,6 @@ package.editor.width=1252
 package.editor.x=15
 package.editor.y=107
 package.frame.height=749
-package.editor.x=234
 package.frame.width=1382
 package.numDependencies=0
 package.numTargets=1
