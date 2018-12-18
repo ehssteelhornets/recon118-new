@@ -1,4 +1,4 @@
-package recon118;
+ 
 
 import java.util.List;
 import java.util.ArrayList;
@@ -46,7 +46,14 @@ class Spreadsheets {
     
     public static void main() {
         initialize();
-        
+        List<List<Object>> cells = readCells("Sheet1");
+        for (List<Object> a: cells) {
+            for (Object b: a) {
+                System.out.print(b);
+                System.out.print("\t");
+            }
+            System.out.println();
+        }
     }
     
     public static void initialize() {
