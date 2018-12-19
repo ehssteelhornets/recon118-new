@@ -1,5 +1,3 @@
-package recon118;
-
 public class Team
 {
     //Initilizable values
