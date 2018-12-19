@@ -47,19 +47,18 @@ class Spreadsheets {
     public static void main() {
         initialize();
         List<List<Object>> cells = readCells("Sheet1");
-        /*
+        /**
         for (List<Object> a: cells) {
         for (Object b: a) {
         System.out.print(b);
         System.out.print("\t");
         }
         System.out.println();
-        }*/
+        }**/
         LinkedList<Team> teams = new LinkedList<Team>();
         for (List<Object> row: cells) {
             if (teamContains(teams,(int)row.get(2))==-1) 
                 teams.add(new Team("",(int)row.get(2)));
-
         }
     }
 
@@ -121,33 +120,6 @@ class Spreadsheets {
             }
             System.out.println();
             return values;
-        } catch (Exception e) {throw new RuntimeException(e);}
-    }
-
-    /**
-     * Updates Cells of range with values
-     */
-    public static void writeCells(final String range, final List<List<Object>> values) {
-        try {
-            ValueRange body = new ValueRange()
-                .setValues(values);
-
-            service.spreadsheets().values().update(spreadsheetID, range, body)
-            .setValueInputOption("RAW")
-            .execute();
-
-            //System.out.println("Updated Cells of " +  + "/" + range.substring(0,range.indexOf("!")) + ":");
-            char startCellLetter = range.charAt(range.indexOf("!")+1);
-            String startCellNum = range.substring(range.indexOf("!")+2,range.indexOf(":"));
-            for (int r = 0; r < values.size(); r++) {
-                List<Object> row = values.get(r);
-                String cellNum = Integer.toString(Integer.parseInt(startCellNum)+r);
-                for (int c = 0; c < row.size(); c++) {
-                    char cellLetter = (char)((int)startCellLetter+c);
-                    System.out.println("Wrote \"" + row.get(c) + "\" to cell " + cellLetter + cellNum);
-                }
-            }
-            System.out.println("\n");
         } catch (Exception e) {throw new RuntimeException(e);}
     }
     private static class Team
