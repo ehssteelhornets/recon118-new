@@ -59,6 +59,11 @@ class Spreadsheets {
         for (List<Object> row: cells) {
             if (teamContains(teams,(int)row.get(2))==-1) 
                 teams.add(new Team("",(int)row.get(2)));
+            else
+            {
+                Team temp = teams.get(teamContains(teams,((int)row.get(2))));
+                temp.updateInformation();
+            }
         }
     }
 
@@ -147,6 +152,10 @@ class Spreadsheets {
         public String toString()
         {
             return "Team " + teamNumber + "," + name;
+        }
+
+        public void updateInformation()
+        {
         }
 
         public void addWin()
