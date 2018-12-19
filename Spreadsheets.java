@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Collections;
 //Add libraries
@@ -53,7 +54,7 @@ class Spreadsheets {
             }
             System.out.println();
         }*/
-        ArrayList<Team> teams = new ArrayList<Team>();
+        LinkedList<Team> teams = new LinkedList<Team>();
         for (List<Object> row: cells) {
             if (teamContains(teams,(int)row.get(2))==-1) 
                 teams.add(new Team("",(int)row.get(2)));
@@ -61,7 +62,7 @@ class Spreadsheets {
         }
     }
     
-    private static int teamContains(ArrayList<Team> teams, int teamNum) {
+    private static int teamContains(LinkedList<Team> teams, int teamNum) {
         for (int i = 0; i < teams.size(); i++) {
             if (teams.get(i).getNum()==teamNum) {
                 return i;
