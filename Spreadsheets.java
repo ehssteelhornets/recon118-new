@@ -194,8 +194,8 @@ class Spreadsheets {
     private class Rankings
     {
         private Comparator sorter = null;
-        private LinkedList teams = null;
-        public Rankings(String sortType, LinkedList teams)
+        private LinkedList<Team> teams = null;
+        public Rankings(String sortType, LinkedList<Team> teams)
         {
             this.teams = teams;
             //Fill in a comparator
@@ -205,6 +205,18 @@ class Spreadsheets {
         public void sort(String sortType)
         {
             Collections.sort(teams,sorter);
+        }
+
+        public Team getHighest()
+        {
+            sort("Highest");
+            return teams.get(1);
+        }
+
+        public Team getTopScorer()
+        {
+            sort("Highest Scoring");
+            return teams.get(1);
         }
     }
 }
