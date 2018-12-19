@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Team
+comment1.params=name\ teamNumber
+comment1.target=Team(java.lang.String,\ int)
+comment2.params=gameScore\ penaltys
+comment2.target=void\ addScore(int,\ int)
+numComments=3
