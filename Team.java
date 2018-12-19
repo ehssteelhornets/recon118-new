@@ -18,4 +18,9 @@ public class Team
         totalScore += gameScore;
         penaltylessScore += gameScore - penaltys;
     }
+
+    public String toString()
+    {
+        return "Team " + teamNumber + "," + name;
+    }
 }
