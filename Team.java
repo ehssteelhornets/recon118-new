@@ -6,7 +6,8 @@ public class Team
     //Storage Values
     private int totalScore;
     private int penaltylessScore;
-
+    private int wins;
+    private int losses;
     public Team(String name, int teamNumber)
     {
         this.name = name;
@@ -22,5 +23,15 @@ public class Team
     public String toString()
     {
         return "Team " + teamNumber + "," + name;
+    }
+
+    public void addWin()
+    {
+        wins++;
+    }
+
+    public void addLoss()
+    {
+        losses++;
     }
 }

@@ -1,9 +1,3 @@
- 
-
- 
-
- 
-
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -51,13 +45,29 @@ class Spreadsheets {
     public static void main() {
         initialize();
         List<List<Object>> cells = readCells("Sheet1");
+        /*
         for (List<Object> a: cells) {
             for (Object b: a) {
                 System.out.print(b);
                 System.out.print("\t");
             }
             System.out.println();
+        }*/
+        ArrayList<Team> teams = new ArrayList<Team>();
+        for (List<Object> row: cells) {
+            if (teamContains(teams,(int)row.get(2))==-1) 
+                teams.add(new Team("",(int)row.get(2)));
+            
         }
+    }
+    
+    private static int teamContains(ArrayList<Team> teams, int teamNum) {
+        for (int i = 0; i < teams.size(); i++) {
+            if (teams.get(i).getNum()==teamNum) {
+                return i;
+            }
+        }
+        return -1;
     }
     
     public static void initialize() {
@@ -138,59 +148,45 @@ class Spreadsheets {
             System.out.println("\n");
         } catch (Exception e) {throw new RuntimeException(e);}
     }
-    /*
-    public static void createNewSheet(final String sheetID, Color color) {
-        List<Request> request = new ArrayList<Request>();
-        request.add(new Request().setAddSheet(new AddSheetRequest().setProperties(new SheetProperties()
-            .setTitle(sheetID)
-            .setGridProperties(new GridProperties().setRowCount(1000).setColumnCount(26))
-            .setTabColor(color))));
-        try {
-            service.spreadsheets().batchUpdate(s, new BatchUpdateSpreadsheetRequest().setRequests(request)).execute(); 
-            System.out.println("Created sheet " + sheetID + "\n");
-        } catch (Exception e) {throw new RuntimeException(e);}
-    }
+    private static class Team
+    {
+        //Initilizable values
+        private String name;
+        private int teamNumber;
+        //Storage Values
+        private int totalScore;
+        private int penaltylessScore;
+        private int wins;
+        private int losses;
+        public Team(String name, int teamNumber)
+        {
+            this.name = name;
+            this.teamNumber = teamNumber;
+        }
     
-    private static void deleteSheet(final String sheetID) {
-        try {
-            service.spreadsheets().batchUpdate(spreadsheetId[1], new BatchUpdateSpreadsheetRequest().setRequests(
-                Collections.singletonList(new Request().setDeleteSheet(new DeleteSheetRequest()
-                .setSheetId(Integer.parseInt((String)readCells(sheetID+"!Z1:Z1",1).get(0).get(0)))))))
-                .execute();
-            System.out.println("Sheet " + sheetID + " deleted");
-        } catch (Exception e) {throw new RuntimeException(e);}
-    }
+        public void addScore(int gameScore, int penaltys)
+        {
+            totalScore += gameScore;
+            penaltylessScore += gameScore - penaltys;
+        }
     
-    public static void copySheet(int from, int IDFrom, int to, String newName, Color color) {
-        try {
-            //copy the sheet
-            CopySheetToAnotherSpreadsheetRequest requestBody = new CopySheetToAnotherSpreadsheetRequest();
-            requestBody.setDestinationSpreadsheetId(spreadsheetId[to]);
-            SheetProperties newSheetProperties = service.spreadsheets().sheets().copyTo(spreadsheetId[from], IDFrom, requestBody).execute();
-            
-            //change the name and tab color
-            List<Request> request = Collections.singletonList(new Request().setUpdateSheetProperties(new UpdateSheetPropertiesRequest()
-                .setProperties(newSheetProperties.setTitle(newName).setTabColor(color)).setFields("title,tabColor")));
-            service.spreadsheets().batchUpdate(spreadsheetId[1], new BatchUpdateSpreadsheetRequest().setRequests(request)).execute();
-            
-            //write the sheetID in cell Z1 for easy access
-            service.spreadsheets().values().update(spreadsheetId[to], newName + "!Z1:Z1", new ValueRange().setValues(
-                Collections.singletonList(Collections.singletonList(Integer.toString(newSheetProperties.getSheetId())))))
-                .setValueInputOption("RAW")
-                .execute();
-            
-            System.out.println("Copied sheet from " + spreadsheetName[from] + " to " + spreadsheetName[to] + " with the name " + newName + "\n");
-        } catch (Exception e) {throw new RuntimeException();}
-    }
+        public String toString()
+        {
+            return "Team " + teamNumber + "," + name;
+        }
     
-    public static boolean sheetExists(String sheetID) {
-        try {
-            //try to read values from sheet if the sheet does not exist then GoogleJsonResponseException is thrown
-            ValueRange response = service.spreadsheets().values()
-                .get(spreadsheetId[1], sheetID+"!A1:C3")
-                .execute();
-        } catch (GoogleJsonResponseException e) {return false;}
-        catch (Exception e) {throw new RuntimeException(e);}
-        return true;
-    }*/
+        public void addWin()
+        {
+            wins++;
+        }
+    
+        public void addLoss()
+        {
+            losses++;
+        }
+        
+        public int getNum() {
+            return teamNumber;
+        }
+    }
 }
