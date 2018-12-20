@@ -1,3 +1,5 @@
+package recon118;
+
 import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
@@ -179,9 +181,9 @@ class Spreadsheets {
             Collections.sort(teams,sorter);
         }
 
-        public Team getHighest()
+        public Team getWinner()
         {
-            sort("Highest");
+            sort("Winner");
             return teams.get(1);
         }
 
