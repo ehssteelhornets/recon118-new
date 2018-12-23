@@ -33,14 +33,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-class Spreadsheets {
+public class Spreadsheets {
     private static final String APPLICATION_NAME = "Google Sheets API Java Quickstart";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
 
     private static final String CREDENTIALS_FILE_PATH = "credentials.json";
     private static final String spreadsheetID = "1peZKQGBokN1ILdY9Hqhx8x9HzCtHHczAfVjfkdjVLjU";
-    
+
     private static Sheets service = null;
 
     public static void main() {
@@ -126,77 +126,6 @@ class Spreadsheets {
             return values;
         } catch (Exception e) {throw new RuntimeException(e);}
     }
-    private static class Team
-    {
-        //Initilizable values
-        private String name;
-        private int teamNumber;
-        //Storage Values
-        private int totalScore;
-        private int penaltylessScore;
-        private int wins;
-        private int losses;
-        public Team(String name, int teamNumber)
-        {
-            this.name = name;
-            this.teamNumber = teamNumber;
-        }
 
-        public void addScore(int gameScore, int penaltys)
-        {
-            totalScore += gameScore;
-            penaltylessScore += gameScore - penaltys;
-        }
 
-        public String toString()
-        {
-            return "Team " + teamNumber + "," + name;
-        }
-
-        public void updateInformation()
-        {
-        }
-
-        public void addWin()
-        {
-            wins++;
-        }
-
-        public void addLoss()
-        {
-            losses++;
-        }
-
-        public int getNum() {
-            return teamNumber;
-        }
-    }
-    private class Rankings
-    {
-        private Comparator sorter = null;
-        private LinkedList<Team> teams = null;
-        public Rankings(String sortType, LinkedList<Team> teams)
-        {
-            this.teams = teams;
-            //Fill in a comparator
-            this.sorter = null;
-        }
-
-        public void sort(String sortType)
-        {
-            Collections.sort(teams,sorter);
-        }
-
-        public Team getHighest()
-        {
-            sort("Highest");
-            return teams.get(1);
-        }
-
-        public Team getTopScorer()
-        {
-            sort("Highest Scoring");
-            return teams.get(1);
-        }
-    }
 }
