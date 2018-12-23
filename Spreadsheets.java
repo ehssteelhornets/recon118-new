@@ -40,8 +40,7 @@ class Spreadsheets {
 
     private static final String CREDENTIALS_FILE_PATH = "credentials.json";
     private static final String spreadsheetID = "1peZKQGBokN1ILdY9Hqhx8x9HzCtHHczAfVjfkdjVLjU";
-    private static final String[] spreadsheetName = {"ContactInfo", "MainSchedule", "Sample"};
-
+    
     private static Sheets service = null;
 
     public static void main() {
