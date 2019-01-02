@@ -27,10 +27,6 @@ public class Team
         return "Team " + teamNumber + "," + name;
     }
 
-    public void updateInformation()
-    {
-    }
-
     public void addWin()
     {
         wins++;
@@ -39,9 +35,5 @@ public class Team
     public void addLoss()
     {
         losses++;
-    }
-
-    public int getNum() {
-        return teamNumber;
     }
 }
