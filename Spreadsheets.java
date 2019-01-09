@@ -66,7 +66,7 @@ class Spreadsheets {
             else
             {
                 Team temp = teams.get(teamContains(teams,((int)row.get(2))));
-                temp.updateInformation("","");
+                temp.updateInformation("","","");
             }
         }
     }
