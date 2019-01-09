@@ -1,13 +1,16 @@
+package recon118;
+import java.util.LinkedList;
 public class Team
 {
     //Initilizable values
     private String name;
     private int teamNumber;
     //Storage Values
-    private int totalScore;
-    private int penaltylessScore;
-    private int wins;
-    private int losses;
+    private LinkedList<Match> matches = new LinkedList<Match>();
+    private int totalScore = 0,
+    penaltylessScore = 0,
+    wins = 0,
+    losses = 0;
     public Team(String name, int teamNumber)
     {
         this.name = name;
@@ -25,10 +28,6 @@ public class Team
         return "Team " + teamNumber + "," + name;
     }
 
-    public void updateInformation()
-    {
-    }
-
     public void addWin()
     {
         wins++;
@@ -39,7 +38,13 @@ public class Team
         losses++;
     }
 
-    public int getNum() {
-        return teamNumber;
+    public int getNum()
+    {
+        return 1;
+    }
+
+    public void addMatch(Match m)
+    {
+        matches.add(m);
     }
 }

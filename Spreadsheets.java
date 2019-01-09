@@ -1,3 +1,5 @@
+package recon118;
+
 import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
@@ -33,7 +35,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class Spreadsheets {
+class Spreadsheets {
     private static final String APPLICATION_NAME = "Google Sheets API Java Quickstart";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
@@ -56,12 +58,15 @@ public class Spreadsheets {
         }**/
         LinkedList<Team> teams = new LinkedList<Team>();
         for (List<Object> row: cells) {
+            Team t = new Team("",(int)row.get(2));
+            
+            
             if (teamContains(teams,(int)row.get(2))==-1) 
                 teams.add(new Team("",(int)row.get(2)));
             else
             {
                 Team temp = teams.get(teamContains(teams,((int)row.get(2))));
-                temp.updateInformation();
+                temp.addMatch(new Match());
             }
         }
     }
@@ -126,6 +131,5 @@ public class Spreadsheets {
             return values;
         } catch (Exception e) {throw new RuntimeException(e);}
     }
-
-
 }
+ 
