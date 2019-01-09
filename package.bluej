@@ -7,6 +7,7 @@ objectbench.width=1342
 package.divider.horizontal=0.6
 package.divider.vertical=0.8478260869565217
 package.editor.height=539
+package.editor.width=1252
 package.editor.x=-8
 package.editor.y=-8
 package.frame.height=744
