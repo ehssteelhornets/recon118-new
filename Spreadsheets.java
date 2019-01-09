@@ -58,12 +58,15 @@ class Spreadsheets {
         }**/
         LinkedList<Team> teams = new LinkedList<Team>();
         for (List<Object> row: cells) {
+            Team t = new Team("",(int)row.get(2));
+            
+            
             if (teamContains(teams,(int)row.get(2))==-1) 
                 teams.add(new Team("",(int)row.get(2)));
             else
             {
                 Team temp = teams.get(teamContains(teams,((int)row.get(2))));
-                temp.updateInformation();
+                temp.updateInformation("","");
             }
         }
     }
