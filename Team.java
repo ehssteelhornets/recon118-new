@@ -43,8 +43,8 @@ public class Team
         return 1;
     }
 
-    public void updateInformation(String position,String orientation,String goldPos, String[] autoTasks, int gold, int silver, int depot, String endGame, String comment)
+    public void addMatch(Match m)
     {
-        matches.add(new Match());
+        matches.add(m);
     }
 }
