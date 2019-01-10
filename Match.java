@@ -1,9 +1,6 @@
 package recon118;
 
- 
-
 import java.util.LinkedList;
-
 public class Match
 {
     private int matchNumber,teamNumber,gold,silver,depot;
@@ -15,5 +12,15 @@ public class Match
         this.position = position;this.orientation = orientation;this.goldPosition = goldPosition;this.endgame = endgame; this.comment = comment;
         this.autoTasks = autoTasks;
     }
-    
+
+    public void reportScore()
+    {
+        int endgameTotal = 0;
+        if(endgame.equals("Hanging on Lander"))
+        {
+            endgameTotal += 0;
+        }
+        
+        return (gold * 5) + (silver * 5) + (depot * 2) + endgameTotal
+    }
 }

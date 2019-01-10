@@ -20,7 +20,7 @@ public class Team
         this.name = name;
         this.teamNumber = teamNumber;
     }
-
+    
     public void addScore(int gameScore, int penaltys)
     {
         totalScore += gameScore;
@@ -36,17 +36,17 @@ public class Team
     {
         wins++;
     }
-
+    
     public void addLoss()
     {
         losses++;
     }
-
+    //Get the teams overall Ranking
     public int getNum()
     {
         return 1;
     }
-
+    //Adds a new match to the list of matches for that team
     public void addMatch(Match m)
     {
         matches.add(m);
