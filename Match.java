@@ -13,14 +13,23 @@ public class Match
         this.autoTasks = autoTasks;
     }
 
-    public void reportScore()
+    public int reportScore()
     {
         int endgameTotal = 0;
+        int autoTotal = 0;
         if(endgame.equals("Hanging on Lander"))
         {
-            endgameTotal += 0;
+            endgameTotal += 50;
         }
-        
-        return (gold * 5) + (silver * 5) + (depot * 2) + endgameTotal
+        else if (endgame.equals("Parked Partially in Crater"))
+        {
+            endgameTotal += 10;
+        }
+        else if (endgame.equals("Parked Completely in Crater"))
+        {
+            endgameTotal += 25;
+        }
+
+        return (gold * 5) + (silver * 5) + (depot * 2) + endgameTotal + autoTotal;
     }
 }
