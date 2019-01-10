@@ -2,4 +2,10 @@
 comment0.target=Game
 comment1.params=gameNum
 comment1.target=Game(int)
-numComments=2
+comment2.params=
+comment2.target=int\ getBlueScore()
+comment3.params=
+comment3.target=int\ getRedScore()
+comment4.params=
+comment4.target=java.lang.String\ getMatchScore()
+numComments=5

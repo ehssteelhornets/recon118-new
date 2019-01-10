@@ -13,8 +13,18 @@ public class Game
 
     }
 
-    public int getScore()
+    public int getBlueScore()
     {
-        return 0;
+        return blueScore;
+    }
+
+    public int getRedScore()
+    {
+        return redScore;
+    }
+
+    public String getMatchScore()
+    {
+        return blueScore + " - " + redScore;
     }
 }
