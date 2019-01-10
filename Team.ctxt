@@ -13,5 +13,5 @@ comment5.target=void\ addLoss()
 comment6.params=
 comment6.target=int\ getNum()
 comment7.params=m
-comment7.target=void\ addMatch(recon118.Match)
+comment7.target=void\ addMatch(Match)
 numComments=8

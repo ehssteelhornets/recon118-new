@@ -1,4 +1,6 @@
- 
+package recon118;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.LinkedList;
 public class Team
 {
@@ -6,6 +8,8 @@ public class Team
     private String name;
     private int teamNumber;
     //Storage Values
+    //Could be implemented as TreeSet
+    //private Set<Match> matches = new TreeSet<Match>();
     private LinkedList<Match> matches = new LinkedList<Match>();
     private int totalScore = 0,
     penaltylessScore = 0,
