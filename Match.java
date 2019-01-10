@@ -23,7 +23,7 @@ public class Match
         }
         else if (endgame.equals("Parked Partially in Crater"))
         {
-            endgameTotal += 10;
+            endgameTotal += 15;
         }
         else if (endgame.equals("Parked Completely in Crater"))
         {
