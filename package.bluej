@@ -1,10 +1,11 @@
 #BlueJ package file
-dependency1.from=Rankings
+dependency1.from=Spreadsheets
 dependency1.to=Team
 dependency1.type=UsesDependency
 dependency2.from=Spreadsheets
-dependency2.to=Team
+dependency2.to=Match
 dependency2.type=UsesDependency
+<<<<<<< HEAD
 dependency3.from=Spreadsheets
 dependency3.to=Match
 dependency3.type=UsesDependency
@@ -19,9 +20,27 @@ package.editor.y=114
 package.frame.height=736
 package.frame.width=1382
 package.numDependencies=3
+=======
+editor.fx.0.height=1000
+editor.fx.0.width=1296
+editor.fx.0.x=-8
+editor.fx.0.y=-8
+objectbench.height=93
+objectbench.width=1260
+package.divider.horizontal=0.6
+package.divider.vertical=0.8416149068322981
+package.editor.height=535
+package.editor.width=1170
+package.editor.x=-96
+package.editor.y=100
+package.frame.height=744
+package.frame.width=1300
+package.numDependencies=2
+>>>>>>> e56aa90598693cedfe64625a8834e358a4a7cf8f
 package.numTargets=4
 package.showExtends=true
 package.showUses=true
+project.charset=windows-1252
 readme.height=58
 readme.name=@README
 readme.width=47
