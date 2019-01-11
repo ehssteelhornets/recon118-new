@@ -8,9 +8,10 @@ public class Game
     private int blueScore;
     private int redScore;
     private Set<Match> matches = new TreeSet<Match>();
-    public Game(int gameNum)
+    public Game(int gameNum, TreeSet matches)
     {
-
+        this.gameNum = gameNum;
+        this.matches = matches;
     }
 
     public int getBlueScore()

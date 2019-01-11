@@ -11,6 +11,7 @@ public class Team
     //Could be implemented as TreeSet
     //private Set<Match> matches = new TreeSet<Match>();
     private LinkedList<Match> matches = new LinkedList<Match>();
+    private Set <Game> games = new TreeSet<Game>();
     private int totalScore = 0,
     penaltylessScore = 0,
     wins = 0,
