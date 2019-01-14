@@ -1,8 +1,16 @@
 #BlueJ class context
 comment0.target=Match
+comment0.text=\r\n\ The\ match\ class\ records\ all\ of\ the\ data\ for\ a\ single\ team\ in\ a\ single\ match\r\n\ including\ all\ of\ the\ details\ of\ the\ beginning\ of\ the\ game\ /\ autonomous\r\n\ and\ performance\ in\ teleop\ and\ endgame\r\n
 comment1.params=matchNumber\ teamNumber\ position\ orientation\ goldPos\ autoTasks\ gold\ silver\ depot\ endGame\ comment
 comment1.target=Match(int,\ int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.util.LinkedList,\ int,\ int,\ int,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ instantiates\ the\ match\ class\ variables\ given\ all\ of\ the\ values\ for\ the\ match\r\n\ that\ have\ been\ parsed\ from\ the\ spreadsheet\ by\ the\ driver\ class\r\n
 comment2.params=
 comment2.target=int\ reportScore()
-comment2.text=\r\n\ returns\ the\ total\ score\ of\ a\ match\ (excluding\ penalties)\r\n
-numComments=3
+comment2.text=\r\n\ returns\ the\ total\ score\ of\ a\ match\ (excluding\ penalties)\r\n\ by\ adding\ the\ total\ scores\ from\ auto\ teleop\ and\ endgame\r\n
+comment3.params=
+comment3.target=int\ reportAutoScore()
+comment3.text=\r\n\ goes\ through\ the\ list\ of\ all\ tasks\ completed\ in\ auto\r\n\ and\ returns\ the\ total\ score\ from\ autonomous\r\n
+comment4.params=
+comment4.target=int\ reportTeleopScore()
+comment4.text=\r\n\ Scales\ the\ precollected\ values\ to\ their\ point\ totals\ \r\n\ and\ returns\ total\ points\ from\ teleop\r\n
+numComments=5

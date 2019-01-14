@@ -6,6 +6,7 @@ public class Rankings
 {
     private Comparator sorter = null;
     private LinkedList<Team> teams = null;
+    private String rankingParameterStr = "";
     public Rankings(String sortType, LinkedList<Team> teams)
     {
         this.teams = teams;
@@ -28,5 +29,20 @@ public class Rankings
     {
         sort("Highest Scoring");
         return teams.get(1);
+    }
+    
+    public void sendOutput() {
+        String outputStr = "Top teams based on " + rankingParameterStr + ":/n";
+        for (int t = 0; t < 10; t++) {
+            Team team = teams.get(t);
+            outputStr += t + ") ";
+            outputStr += team;
+            switch (rankingParameterStr.toLowerCase()) {
+                case "auto points":
+                    outputStr += team.
+            }
+            outputStr += "\n";
+        }
+        System.out.println(outputStr);
     }
 }

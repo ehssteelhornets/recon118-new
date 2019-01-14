@@ -15,24 +15,48 @@ public class Team
     private LinkedList<Match> matches = new LinkedList<Match>();
     private Set <Game> games = new TreeSet<Game>();
     protected int totalScore = 0,
+        totalAutoScore = 0,
+        totalTeleopScore = 0,
         penaltylessScore = 0,
         wins = 0,
         losses = 0;
+      
+    /**
+     * Main constructor for Team class
+     * Instantiates a Team object using the team name and number
+     */
     public Team(String name, int teamNumber)
     {
         this.name = name;
         this.teamNumber = teamNumber;
     }
     
-    public void addScore(int gameScore, int penaltys)
+    /**
+     * Secondary constructor for Team class
+     * Instantiates a Team object using only the team number
+     * Used when the team name is not recorded in the spreadsheet
+     */
+        public Team(int teamNumber)
+    {
+        this.teamNumber = teamNumber;
+        name = "";
+    }
+    
+    /**
+     * Updates the score variables given the total score
+     * and penalties for a single match
+     */
+    public void addScore(int gameScore, int penalties)
     {
         totalScore += gameScore;
-        penaltylessScore += gameScore - penaltys;
+        penaltylessScore += gameScore - penalties;
     }
 
     public String toString()
     {
-        return "Team " + teamNumber + "," + name;
+        String teamStr = "Team " + teamNumber;
+        if (!name.equals("")) teamStr += ", " + name;
+        return teamStr;
     }
 
     public void addWin()
