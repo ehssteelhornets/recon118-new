@@ -1,4 +1,4 @@
- 
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -15,8 +15,17 @@ public class Rankings
     }
 
     public void sort(String sortType)
-    {
-        Collections.sort(teams,sorter);
+    {   switch (sortType.toLowerCase()) {
+            case "auto":
+            Collections.sort(teams,new sortByAuto());
+            break;
+            case "teleop":
+            Collections.sort(teams,new sortByTeleop());
+            break;
+            case "total points":
+            Collections.sort(teams,new sortByPoints());
+            break;
+        }
     }
 
     public Team getHighest()
@@ -25,12 +34,24 @@ public class Rankings
         return teams.get(1);
     }
 
-    public Team getTopScorer()
+    public Team getHighestAuto()
     {
-        sort("Highest Scoring");
+        sort("auto");
         return teams.get(1);
     }
-    
+
+    public Team getHighestTeleop()
+    {
+        sort("teleop");
+        return teams.get(1);
+    }
+
+    public Team getTopScorer()
+    {
+        sort("total points");
+        return teams.get(1);
+    }
+
     public void sendOutput() {
         String outputStr = "Top teams based on " + rankingParameterStr + ":/n";
         for (int t = 0; t < 10; t++) {
@@ -39,7 +60,7 @@ public class Rankings
             outputStr += team;
             switch (rankingParameterStr.toLowerCase()) {
                 case "auto points":
-                    outputStr += team.toString();
+                outputStr += team.toString();
             }
             outputStr += "\n";
         }
