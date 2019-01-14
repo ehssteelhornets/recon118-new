@@ -1,4 +1,4 @@
-package recon118;
+ 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -39,7 +39,7 @@ public class Rankings
             outputStr += team;
             switch (rankingParameterStr.toLowerCase()) {
                 case "auto points":
-                    outputStr += team.
+                    outputStr += team.toString();
             }
             outputStr += "\n";
         }

@@ -8,4 +8,6 @@ comment3.params=
 comment3.target=Team\ getHighest()
 comment4.params=
 comment4.target=Team\ getTopScorer()
-numComments=5
+comment5.params=
+comment5.target=void\ sendOutput()
+numComments=6
