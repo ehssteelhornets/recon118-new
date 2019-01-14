@@ -4,4 +4,5 @@ comment1.params=matchNumber\ teamNumber\ position\ orientation\ goldPos\ autoTas
 comment1.target=Match(int,\ int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.util.LinkedList,\ int,\ int,\ int,\ java.lang.String,\ java.lang.String)
 comment2.params=
 comment2.target=int\ reportScore()
+comment2.text=\r\n\ returns\ the\ total\ score\ of\ a\ match\ (excluding\ penalties)\r\n
 numComments=3

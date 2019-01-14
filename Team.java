@@ -7,17 +7,17 @@ import java.util.LinkedList;
 public class Team
 {
     //Initilizable values
-    private String name;
-    private int teamNumber;
+    protected String name;
+    protected int teamNumber;
     //Storage Values
     //Could be implemented as TreeSet
     //private Set<Match> matches = new TreeSet<Match>();
     private LinkedList<Match> matches = new LinkedList<Match>();
     private Set <Game> games = new TreeSet<Game>();
-    private int totalScore = 0,
-    penaltylessScore = 0,
-    wins = 0,
-    losses = 0;
+    protected int totalScore = 0,
+        penaltylessScore = 0,
+        wins = 0,
+        losses = 0;
     public Team(String name, int teamNumber)
     {
         this.name = name;
@@ -53,5 +53,14 @@ public class Team
     public void addMatch(Match m)
     {
         matches.add(m);
+    }
+    
+    public int compareTo(Object team) {
+        Team otherTeam = (Team)team;
+        return this.totalScore - otherTeam.totalScore;
+    }
+    
+    public int compareTo(Team otherTeam, int parameter) {
+        return 0;
     }
 }

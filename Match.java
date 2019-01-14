@@ -12,23 +12,44 @@ public class Match
         this.autoTasks = autoTasks;
     }
 
+    /**
+     * returns the total score of a match (excluding penalties)
+     */
     public int reportScore()
     {
-        int endgameTotal = 0;
+        int endgameTotal;
         int autoTotal = 0;
-        if(endgame.equals("Hanging on Lander"))
-        {
-            endgameTotal += 50;
+        switch (endgame){
+            case "Hanging on Lander":
+                endgameTotal = 50;
+                break;
+            case "Parked Partially in Crater":
+                endgameTotal = 15;
+                break;
+            case "Parked Completely in Crater":
+                endgameTotal = 25;
+                break;
+            default:
+                endgameTotal = 0;
+                break;
         }
-        else if (endgame.equals("Parked Partially in Crater"))
-        {
-            endgameTotal += 15;
+        for (String task: autoTasks) {
+            switch (task) {
+                case "Drop and Detach from Lander":
+                    autoTotal += 30;
+                    break;
+                case "Correct Mineral Hit":
+                    autoTotal += 25;
+                    break;
+                case "Place Team Marker":
+                    autoTotal += 15;
+                    break;
+                case "Park in Crater":
+                    autoTotal += 10;
+                    break;
+            }
         }
-        else if (endgame.equals("Parked Completely in Crater"))
-        {
-            endgameTotal += 25;
-        }
-
+        //Scales the precollected values to their point totals and sums the total points of the match.
         return (gold * 5) + (silver * 5) + (depot * 2) + endgameTotal + autoTotal;
     }
 }
