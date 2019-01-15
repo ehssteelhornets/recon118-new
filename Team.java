@@ -1,6 +1,5 @@
- 
+package recon118;
 
- 
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.LinkedList;
@@ -15,12 +14,12 @@ public class Team
     private LinkedList<Match> matches = new LinkedList<Match>();
     private Set <Game> games = new TreeSet<Game>();
     protected int totalScore = 0,
-        totalAutoScore = 0,
-        totalTeleopScore = 0,
-        penaltylessScore = 0,
-        wins = 0,
-        losses = 0;
-      
+    totalAutoScore = 0,
+    totalTeleopScore = 0,
+    penaltylessScore = 0,
+    wins = 0,
+    losses = 0;
+
     /**
      * Main constructor for Team class
      * Instantiates a Team object using the team name and number
@@ -30,18 +29,18 @@ public class Team
         this.name = name;
         this.teamNumber = teamNumber;
     }
-    
+
     /**
      * Secondary constructor for Team class
      * Instantiates a Team object using only the team number
      * Used when the team name is not recorded in the spreadsheet
      */
-        public Team(int teamNumber)
+    public Team(int teamNumber)
     {
         this.teamNumber = teamNumber;
         name = "";
     }
-    
+
     /**
      * Updates the score variables given the total score
      * and penalties for a single match
@@ -52,6 +51,9 @@ public class Team
         penaltylessScore += gameScore - penalties;
     }
 
+    /**
+     * Reports the data about a team
+     */
     public String toString()
     {
         String teamStr = "Team " + teamNumber;
@@ -59,31 +61,43 @@ public class Team
         return teamStr;
     }
 
+    /**
+     *Adds a win to the teams record
+     */
     public void addWin()
     {
         wins++;
     }
-    
+
+    /**
+     * Adds a loss to the teams record
+     */
     public void addLoss()
     {
         losses++;
     }
-    //Get the teams overall Ranking
+
+    /**
+     * Get the teams overall Ranking
+     */
     public int getNum()
     {
         return 1;
     }
-    //Adds a new match to the list of matches for that team
+
+    /**
+     * Adds a match to the list of matches for the team
+     */
     public void addMatch(Match m)
     {
         matches.add(m);
     }
-    
+
     public int compareTo(Object team) {
         Team otherTeam = (Team)team;
         return this.totalScore - otherTeam.totalScore;
     }
-    
+
     public int compareTo(Team otherTeam, int parameter) {
         return 0;
     }

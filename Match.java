@@ -1,3 +1,5 @@
+package recon118;
+
  
 import java.util.LinkedList;
 /**
@@ -30,8 +32,7 @@ public class Match
     {
         int endgameTotal,
             teleopTotal = reportTeleopScore(),
-            autoTotal = reportAutoScore();
-        
+            autoTotal = reportAutoScore();        
         switch (endgame){
             case "Hanging on Lander":
                 endgameTotal = 50;
