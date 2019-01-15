@@ -48,7 +48,7 @@ class Spreadsheets {
 
     public static void main() {
         initialize();
-        List<List<Object>> cells = readCells("Sheet1");
+        List<List<Object>> cells = readCells("Sheet1!2:1000");
         /**
         for (List<Object> a: cells) {
         for (Object b: a) {
@@ -59,7 +59,7 @@ class Spreadsheets {
         }**/
         LinkedList<Team> teams = new LinkedList<Team>();
         for (List<Object> row: cells) {
-            Team t = new Team("",(int)row.get(2));
+            Team t = new Team("",Integer.parseInt((String)row.get(2)));
             LinkedList<String> autoTasks = new LinkedList<String>();
             Match m = new Match((int)row.get(1),(int)row.get(2),(String)row.get(3),(String)row.get(4),(String)row.get(5),autoTasks,(int)row.get(7),(int)row.get(8),(int)row.get(9),(String)row.get(10),(String)row.get(11) );
             if (teamContains(teams,(int)row.get(2))==-1) 

@@ -3,6 +3,13 @@ package recon118;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.LinkedList;
+
+/**
+ * The team class records all of the data for al of the (5) matches
+ * that a team will play in the qualifying matches.
+ * The team class will process the total scores in different categories
+ * that the team scores throughout all of the qualifying matches.
+ */
 public class Team
 {
     //Initilizable values
@@ -11,8 +18,8 @@ public class Team
     //Storage Values
     //Could be implemented as TreeSet
     //private Set<Match> matches = new TreeSet<Match>();
-    private LinkedList<Match> matches = new LinkedList<Match>();
-    private Set <Game> games = new TreeSet<Game>();
+    protected LinkedList<Match> matches = new LinkedList<Match>();
+    protected Set <Game> games = new TreeSet<Game>();
     protected int totalScore = 0,
     totalAutoScore = 0,
     totalTeleopScore = 0,
@@ -57,7 +64,8 @@ public class Team
     public String toString()
     {
         String teamStr = "Team " + teamNumber;
-        if (!name.equals("")) teamStr += ", " + name;
+        if (!name.equals("")) 
+            teamStr += ", " + name;
         return teamStr;
     }
 
@@ -87,9 +95,14 @@ public class Team
 
     /**
      * Adds a match to the list of matches for the team
+     * Then adds the auto, teleop, and total scores of the match
+     * to the respective total variables of this object.
      */
     public void addMatch(Match m)
     {
+        totalAutoScore += m.autoTotal;
+        totalTeleopScore += m.teleopTotal;
+        totalScore += m.scoreTotal;
         matches.add(m);
     }
 }

@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Team
+comment0.text=\r\n\ The\ team\ class\ records\ all\ of\ the\ data\ for\ al\ of\ the\ (5)\ matches\r\n\ that\ a\ team\ will\ play\ in\ the\ qualifying\ matches.\r\n\ The\ team\ class\ will\ process\ the\ total\ scores\ in\ different\ categories\r\n\ that\ the\ team\ scores\ throughout\ all\ of\ the\ qualifying\ matches.\r\n
 comment1.params=name\ teamNumber
 comment1.target=Team(java.lang.String,\ int)
 comment1.text=\r\n\ Main\ constructor\ for\ Team\ class\r\n\ Instantiates\ a\ Team\ object\ using\ the\ team\ name\ and\ number\r\n
@@ -23,5 +24,5 @@ comment7.target=int\ getNum()
 comment7.text=\r\n\ Get\ the\ teams\ overall\ Ranking\r\n
 comment8.params=m
 comment8.target=void\ addMatch(Match)
-comment8.text=\r\n\ Adds\ a\ match\ to\ the\ list\ of\ matches\ for\ the\ team\r\n
+comment8.text=\r\n\ Adds\ a\ match\ to\ the\ list\ of\ matches\ for\ the\ team\r\n\ Then\ adds\ the\ auto,\ teleop,\ and\ total\ scores\ of\ the\ match\r\n\ to\ the\ respective\ total\ variables\ of\ this\ object.\r\n
 numComments=9

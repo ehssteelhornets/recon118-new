@@ -13,26 +13,41 @@ public class Match
     private String position,orientation,goldPosition,endgame,comment;
     private LinkedList<String> autoTasks;
     
+    protected int autoTotal, teleopTotal, scoreTotal;
+    
     /**
      * instantiates the match class variables given all of the values for the match
      * that have been parsed from the spreadsheet by the driver class
      */
     public Match(int matchNumber, int teamNumber,String position,String orientation,String goldPos, LinkedList<String> autoTasks, int gold, int silver, int depot, String endGame, String comment)
     {
-        this.matchNumber = matchNumber;this.teamNumber = teamNumber; this.gold = gold;this.silver = silver;
-        this.position = position;this.orientation = orientation;this.goldPosition = goldPosition;this.endgame = endgame; this.comment = comment;
+        this.matchNumber = matchNumber;
+        this.teamNumber = teamNumber; 
+        this.gold = gold;
+        this.silver = silver;
+        this.position = position;
+        this.orientation = orientation;
+        this.goldPosition = goldPosition;
+        this.endgame = endgame; 
+        this.comment = comment;
         this.autoTasks = autoTasks;
+        
+        //by callig this method the autoTotal, teleopTotal, and scoreTotal 
+        //variables will be instantiated
+        scoreTotal = reportScore();
     }
 
     /**
      * returns the total score of a match (excluding penalties)
      * by adding the total scores from auto teleop and endgame
+     * 
+     * Assigns values to the autoTotal and teleopTotal while running this method
      */
-    public int reportScore()
+    private int reportScore()
     {
-        int endgameTotal,
-            teleopTotal = reportTeleopScore(),
-            autoTotal = reportAutoScore();        
+        int endgameTotal;
+        autoTotal = reportAutoScore();
+        teleopTotal = reportTeleopScore();
         switch (endgame){
             case "Hanging on Lander":
                 endgameTotal = 50;
@@ -55,7 +70,7 @@ public class Match
      * goes through the list of all tasks completed in auto
      * and returns the total score from autonomous
      */
-    public int reportAutoScore() {
+    private int reportAutoScore() {
         int autoTotal = 0;
         for (String task: autoTasks) {
             switch (task) {
@@ -80,7 +95,7 @@ public class Match
      * Scales the precollected values to their point totals 
      * and returns total points from teleop
      */
-    public int reportTeleopScore() {
+    private int reportTeleopScore() {
         return (gold * 5) + (silver * 5) + (depot * 2);
     }
 }
