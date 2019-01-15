@@ -92,13 +92,4 @@ public class Team
     {
         matches.add(m);
     }
-
-    public int compareTo(Object team) {
-        Team otherTeam = (Team)team;
-        return this.totalScore - otherTeam.totalScore;
-    }
-
-    public int compareTo(Team otherTeam, int parameter) {
-        return 0;
-    }
 }
