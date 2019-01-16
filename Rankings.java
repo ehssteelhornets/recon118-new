@@ -33,12 +33,6 @@ public class Rankings
         }
     }
 
-    public Team getHighest()
-    {
-        sort("Highest");
-        return teams.get(1);
-    }
-
     public Team getHighestAuto()
     {
         sort("auto");
@@ -56,7 +50,7 @@ public class Rankings
         sort("total points");
         return teams.get(1);
     }
-    
+
     public Team getWinner()
     {
         sort("wins");
