@@ -27,6 +27,9 @@ public class Rankings
             case "total points":
             Collections.sort(teams,new sortByPoints());
             break;
+            case "wins":
+            Collections.sort(teams,new sortByWin());
+            break;
         }
     }
 
@@ -51,6 +54,12 @@ public class Rankings
     public Team getTopScorer()
     {
         sort("total points");
+        return teams.get(1);
+    }
+    
+    public Team getWinner()
+    {
+        sort("wins");
         return teams.get(1);
     }
 
