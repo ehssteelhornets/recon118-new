@@ -61,7 +61,7 @@ class Spreadsheets {
         for (List<Object> row: cells) {
             Team t = new Team("",Integer.parseInt((String)row.get(2)));
             LinkedList<String> autoTasks = new LinkedList<String>();
-            Match m = new Match((int)row.get(1),(int)row.get(2),(String)row.get(3),(String)row.get(4),(String)row.get(5),autoTasks,(int)row.get(7),(int)row.get(8),(int)row.get(9),(String)row.get(10),(String)row.get(11) );
+            Match m = new Match(Integer.parseInt((String)row.get(1)),Integer.parseInt((String)row.get(2)),(String)row.get(3),(String)row.get(4),(String)row.get(5),autoTasks,Integer.parseInt((String)row.get(7)),Integer.parseInt((String)row.get(8)),Integer.parseInt((String)row.get(9)),(String)row.get(10),(String)row.get(11) );
             if (teamContains(teams,(int)row.get(2))==-1) 
                 teams.add(new Team("",(int)row.get(2)));
             else
