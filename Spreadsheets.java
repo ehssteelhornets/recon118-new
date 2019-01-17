@@ -75,13 +75,10 @@ class Spreadsheets {
                 //temp.addMatch(new Match());
             }
         }
-        /**
-         *
-         */
         Rankings r = new Rankings("",teams);
         r.getHighestTeleop();
         r.getWinner();
-        
+
     }
 
     private static int teamContains(LinkedList<Team> teams, int teamNum) {
@@ -135,11 +132,9 @@ class Spreadsheets {
                 .get(spreadsheetID, range)
                 .execute();
             List<List<Object>> values = response.getValues();
-            //System.out.println("Read range |"+range+"| of " + spreadsheetID + " successfully");
             if (values == null || values.isEmpty()) {
                 System.out.println("No data found.");
             }
-            System.out.println();
             return values;
         } catch (Exception e) {throw new RuntimeException(e);}
     }

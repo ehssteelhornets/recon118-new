@@ -103,6 +103,7 @@ public class Team
         totalAutoScore += m.autoTotal;
         totalTeleopScore += m.teleopTotal;
         totalScore += m.scoreTotal;
+        System.out.println(totalTeleopScore);
         matches.add(m);
     }
 }

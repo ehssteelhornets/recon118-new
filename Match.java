@@ -24,6 +24,7 @@ public class Match
         this.teamNumber = teamNumber; 
         this.gold = gold;
         this.silver = silver;
+        this.depot = depot;
         this.position = position;
         this.orientation = orientation;
         this.goldPosition = goldPosition;
