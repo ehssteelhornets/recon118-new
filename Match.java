@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class Match
 {
     private int matchNumber,teamNumber,gold,silver,depot;
-    private String position,orientation,goldPosition,endgame,comment;
+    protected String position,orientation,goldPosition,endgame,comment;
     private LinkedList<String> autoTasks;
     
     protected int autoTotal, teleopTotal, scoreTotal;
@@ -34,7 +34,7 @@ public class Match
         
         //by callig this method the autoTotal, teleopTotal, and scoreTotal 
         //variables will be instantiated
-        scoreTotal = reportScore();
+        //scoreTotal = reportScore();
     }
 
     /**

@@ -1,6 +1,5 @@
 package recon118;
 
-
 import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
@@ -61,12 +60,17 @@ class Spreadsheets {
         for (List<Object> row: cells) {
             Team t = new Team("",Integer.parseInt((String)row.get(2)));
             LinkedList<String> autoTasks = new LinkedList<String>();
-            Match m = new Match(Integer.parseInt((String)row.get(1)),Integer.parseInt((String)row.get(2)),(String)row.get(3),(String)row.get(4),(String)row.get(5),autoTasks,Integer.parseInt((String)row.get(7)),Integer.parseInt((String)row.get(8)),Integer.parseInt((String)row.get(9)),(String)row.get(10),(String)row.get(11) );
-            if (teamContains(teams,(int)row.get(2))==-1) 
-                teams.add(new Team("",(int)row.get(2)));
+            Match m = null;
+            try {
+            m = new Match(Integer.parseInt((String)row.get(1)),Integer.parseInt((String)row.get(2)),(String)row.get(3),(String)row.get(4),(String)row.get(5),autoTasks,Integer.parseInt((String)row.get(7)),Integer.parseInt((String)row.get(8)),Integer.parseInt((String)row.get(9)),(String)row.get(9),(String)row.get(9));
+            } catch (Exception e) {System.out.print((String)row.get(10));}
+            if (teamContains(teams,Integer.parseInt((String)row.get(2)))==-1) {
+                teams.add(new Team("",Integer.parseInt((String)row.get(2))));
+                teams.getLast().addMatch(m);
+            }
             else
             {
-                teams.get(teamContains(teams,((int)row.get(2)))).addMatch(m);
+                teams.get(teamContains(teams,(Integer.parseInt((String)row.get(2))))).addMatch(m);
                 //int matchNumber, int teamNumber,String position,String orientation,String goldPos, LinkedList<String> autoTasks, int gold, int silver, int depot, String endGame, String comment)
                 //temp.addMatch(new Match());
             }
