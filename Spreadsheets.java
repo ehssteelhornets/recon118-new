@@ -60,10 +60,10 @@ class Spreadsheets {
         for (List<Object> row: cells) {
             Team t = new Team("",Integer.parseInt((String)row.get(2)));
             LinkedList<String> autoTasks = new LinkedList<String>();
+            //Ethan add array seperation code here
+            autoTasks.add("test");
             Match m = null;
-            try {
             m = new Match(Integer.parseInt((String)row.get(1)),Integer.parseInt((String)row.get(2)),(String)row.get(3),(String)row.get(4),(String)row.get(5),autoTasks,Integer.parseInt((String)row.get(7)),Integer.parseInt((String)row.get(8)),Integer.parseInt((String)row.get(9)),(String)row.get(9),(String)row.get(9));
-            } catch (Exception e) {System.out.print((String)row.get(10));}
             if (teamContains(teams,Integer.parseInt((String)row.get(2)))==-1) {
                 teams.add(new Team("",Integer.parseInt((String)row.get(2))));
                 teams.getLast().addMatch(m);
@@ -78,6 +78,10 @@ class Spreadsheets {
         /**
          *
          */
+        Rankings r = new Rankings("",teams);
+        r.getHighestTeleop();
+        r.getWinner();
+        
     }
 
     private static int teamContains(LinkedList<Team> teams, int teamNum) {
@@ -131,8 +135,7 @@ class Spreadsheets {
                 .get(spreadsheetID, range)
                 .execute();
             List<List<Object>> values = response.getValues();
-
-            System.out.println("Read range |"+range+"| of " + spreadsheetID + " successfully");
+            //System.out.println("Read range |"+range+"| of " + spreadsheetID + " successfully");
             if (values == null || values.isEmpty()) {
                 System.out.println("No data found.");
             }

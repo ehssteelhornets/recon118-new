@@ -17,7 +17,9 @@ public class Rankings
      * Sorts the data by comparators defined by the sorter classes
      */
     public void sort(String sortType)
-    {   switch (sortType.toLowerCase()) {
+    {
+        this.sortType = sortType;
+        switch (sortType.toLowerCase()) {
             case "auto":
             Collections.sort(teams,new sortByAuto());
             break;
@@ -36,24 +38,28 @@ public class Rankings
     public Team getHighestAuto()
     {
         sort("auto");
+        sendOutput();
         return teams.get(1);
     }
 
     public Team getHighestTeleop()
     {
         sort("teleop");
+        sendOutput();
         return teams.get(1);
     }
 
     public Team getTopScorer()
     {
         sort("total points");
+        sendOutput();
         return teams.get(1);
     }
 
     public Team getWinner()
     {
         sort("wins");
+        sendOutput();
         return teams.get(1);
     }
 
@@ -61,10 +67,10 @@ public class Rankings
      * Prints out the output 
      */
     public void sendOutput() {
-        String outputStr = "Top teams based on " + sortType + ":/n";
+        String outputStr = "Top teams based on " + sortType + ":\n";
         for (int t = 0; t < 10; t++) {
             Team team = teams.get(t);
-            outputStr += t + ") ";
+            outputStr += (t+1) + ") ";
             outputStr += team;
             switch (sortType.toLowerCase()) {
                 case "auto points":
