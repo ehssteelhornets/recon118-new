@@ -63,17 +63,13 @@ class Spreadsheets {
             else
             {
                 teams.get(teamContains(teams,(Integer.parseInt((String)row.get(2))))).addMatch(m);
-                //int matchNumber, int teamNumber,String position,String orientation,String goldPos, LinkedList<String> autoTasks, int gold, int silver, int depot, String endGame, String comment)
-                //temp.addMatch(new Match());
             }
         }
         Rankings r = new Rankings("",teams);
         r.getHighestTeleop();
         r.getWinner();
         r.getLowestTeamNumber();
-        System.out.println(teams.size());
-       // r.getHighestAuto();
-
+        // r.getHighestAuto();
     }
 
     private static int teamContains(LinkedList<Team> teams, int teamNum) {

@@ -1,6 +1,5 @@
 package recon118;
 
-
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.LinkedList;
@@ -86,7 +85,7 @@ public class Team
     }
 
     /**
-     * Get the teams overall Ranking
+     * Get the teams unique identifying number
      */
     public int getTeamNum()
     {
@@ -103,7 +102,6 @@ public class Team
         totalAutoScore += m.autoTotal;
         totalTeleopScore += m.teleopTotal;
         totalScore += m.scoreTotal;
-        System.out.println(totalTeleopScore);
         matches.add(m);
     }
 }
