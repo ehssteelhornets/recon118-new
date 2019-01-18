@@ -88,9 +88,9 @@ public class Team
     /**
      * Get the teams overall Ranking
      */
-    public int getNum()
+    public int getTeamNum()
     {
-        return 1;
+        return teamNumber;
     }
 
     /**

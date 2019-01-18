@@ -1,5 +1,3 @@
- 
-
 import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
@@ -48,14 +46,6 @@ class Spreadsheets {
     public static void main() {
         initialize();
         List<List<Object>> cells = readCells("Sheet1!2:1000");
-        /**
-        for (List<Object> a: cells) {
-        for (Object b: a) {
-        System.out.print(b);
-        System.out.print("\t");
-        }
-        System.out.println();
-        }**/
         LinkedList<Team> teams = new LinkedList<Team>();
         for (List<Object> row: cells) {
             Team t = new Team("",Integer.parseInt((String)row.get(2)));
@@ -83,7 +73,7 @@ class Spreadsheets {
 
     private static int teamContains(LinkedList<Team> teams, int teamNum) {
         for (int i = 0; i < teams.size(); i++) {
-            if (teams.get(i).getNum()==teamNum) {
+            if (teams.get(i).getTeamNum() == teamNum) {
                 return i;
             }
         }
