@@ -5,6 +5,6 @@ public class sortByTeleop implements Comparator<Team>
 {
     public int compare(Team a,Team b)
     {
-        return b.totalTeleopScore - a.totalTeleopScore;
+        return a.totalTeleopScore - b.totalTeleopScore;
     }
 }

@@ -68,6 +68,7 @@ class Spreadsheets {
         Rankings r = new Rankings("",teams);
         r.getHighestTeleop();
         r.getWinner();
+        System.out.println(teams.size());
        // r.getHighestAuto();
 
     }
