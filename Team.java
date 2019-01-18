@@ -1,9 +1,9 @@
- 
+package recon118;
+
 
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.LinkedList;
-
 /**
  * The team class records all of the data for al of the (5) matches
  * that a team will play in the qualifying matches.

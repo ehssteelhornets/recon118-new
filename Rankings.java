@@ -1,3 +1,5 @@
+package recon118;
+
  
 
 import java.util.Collections;
@@ -32,6 +34,9 @@ public class Rankings
             case "wins":
             Collections.sort(teams,new sortByWin());
             break;
+            case "team number":
+            Collections.sort(teams,new sortByTeamNumber());
+            break;
         }
     }
 
@@ -62,13 +67,20 @@ public class Rankings
         sendOutput();
         return teams.get(1);
     }
+    
+    public Team getLowestTeamNumber()
+    {
+        sort("team number");
+        sendOutput();
+        return teams.get(1);
+    }
 
     /**
      * Prints out the output 
      */
     public void sendOutput() {
         String outputStr = "Top teams based on " + sortType + ":\n";
-        for (int t = 0; t < 10; t++) {
+        for (int t = 0; t < teams.size(); t++) {
             Team team = teams.get(t);
             outputStr += (t+1) + ") ";
             outputStr += team;

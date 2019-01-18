@@ -1,3 +1,5 @@
+package recon118;
+
 import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
@@ -68,6 +70,7 @@ class Spreadsheets {
         Rankings r = new Rankings("",teams);
         r.getHighestTeleop();
         r.getWinner();
+        r.getLowestTeamNumber();
         System.out.println(teams.size());
        // r.getHighestAuto();
 
