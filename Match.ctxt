@@ -13,4 +13,6 @@ comment3.text=\r\n\ goes\ through\ the\ list\ of\ all\ tasks\ completed\ in\ aut
 comment4.params=
 comment4.target=int\ reportTeleopScore()
 comment4.text=\r\n\ Scales\ the\ precollected\ values\ to\ their\ point\ totals\ \r\n\ and\ returns\ total\ points\ from\ teleop\r\n
-numComments=5
+comment5.params=
+comment5.target=java.lang.String\ getColor()
+numComments=6

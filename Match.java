@@ -1,4 +1,3 @@
- package recon118;
 
 import java.util.LinkedList;
 /**
@@ -96,5 +95,10 @@ public class Match
      */
     private int reportTeleopScore() {
         return (gold * 5) + (silver * 5) + (depot * 2);
+    }
+    
+    public String getColor()
+    {
+        return "blue";
     }
 }

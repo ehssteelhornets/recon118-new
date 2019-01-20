@@ -2,4 +2,8 @@
 comment0.target=Auditor
 comment1.params=
 comment1.target=Auditor()
-numComments=2
+comment2.params=teamNumber\ teams
+comment2.target=void\ auditTeam(int,\ java.util.LinkedList)
+comment3.params=teams\ teamNum
+comment3.target=int\ teamContains(java.util.LinkedList,\ int)
+numComments=4
