@@ -1,4 +1,5 @@
- 
+package recon118;
+
 import java.util.Comparator;
 public class sortByTeamNumber implements Comparator<Team>
 {
