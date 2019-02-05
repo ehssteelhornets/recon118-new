@@ -1,5 +1,5 @@
 #BlueJ class context
 comment0.target=sortByPoints
 comment1.params=a\ b
-comment1.target=int\ compare(recon118.Team,\ recon118.Team)
+comment1.target=int\ compare(Team,\ Team)
 numComments=2
