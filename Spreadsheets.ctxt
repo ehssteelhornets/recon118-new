@@ -2,8 +2,8 @@
 comment0.target=Spreadsheets
 comment1.params=
 comment1.target=void\ main()
-comment2.params=teams\ teamNum
-comment2.target=int\ teamContains(java.util.LinkedList,\ int)
+comment2.params=teamNum
+comment2.target=int\ teamContains(int)
 comment3.params=
 comment3.target=void\ initialize()
 comment4.params=HTTP_TRANSPORT

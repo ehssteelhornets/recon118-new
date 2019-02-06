@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Game
-comment1.params=gameNum\ matches\ gameplayTeams
-comment1.target=Game(int,\ java.util.LinkedList,\ java.util.LinkedList)
+comment1.params=gameNum\ matches
+comment1.target=Game(int,\ java.util.LinkedList)
 comment2.params=
 comment2.target=void\ runGame()
 comment3.params=m

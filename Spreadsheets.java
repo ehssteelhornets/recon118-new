@@ -44,25 +44,37 @@ class Spreadsheets {
     private static final String spreadsheetID = "1peZKQGBokN1ILdY9Hqhx8x9HzCtHHczAfVjfkdjVLjU";
 
     private static Sheets service = null;
+    
+    public static LinkedList<Team> teams;
 
     public static void main() {
         initialize();
         List<List<Object>> cells = readCells("Sheet1!2:1000");
-        LinkedList<Team> teams = new LinkedList<Team>();
+        teams = new LinkedList<Team>();
+        //keep every four matches grouped together to run the game class
+        LinkedList<Match> matchGroupings = new LinkedList<Match>();
+        int matches = 0;
         for (List<Object> row: cells) {
             Team t = new Team("",Integer.parseInt((String)row.get(2)));
             LinkedList<String> autoTasks = new LinkedList<String>();
             //Ethan add array seperation code here
             autoTasks.add("test");
             Match m = null;
-            m = new Match(Integer.parseInt((String)row.get(1)),Integer.parseInt((String)row.get(2)),(String)row.get(3),(String)row.get(4),(String)row.get(5),autoTasks,Integer.parseInt((String)row.get(7)),Integer.parseInt((String)row.get(8)),Integer.parseInt((String)row.get(9)),(String)row.get(9),(String)row.get(9));
-            if (teamContains(teams,Integer.parseInt((String)row.get(2)))==-1) {
+            m = new Match(Integer.parseInt((String)row.get(1)),Integer.parseInt((String)row.get(2)),(String)row.get(3),(String)row.get(4),(String)row.get(5),(String)row.get(6),autoTasks,Integer.parseInt((String)row.get(8)),Integer.parseInt((String)row.get(9)),Integer.parseInt((String)row.get(10)),(String)row.get(10),(String)row.get(10));
+            if (teamContains(Integer.parseInt((String)row.get(2)))==-1) {
                 teams.add(new Team("",Integer.parseInt((String)row.get(2))));
                 teams.getLast().addMatch(m);
             }
             else
             {
-                teams.get(teamContains(teams,(Integer.parseInt((String)row.get(2))))).addMatch(m);
+                teams.get(teamContains((Integer.parseInt((String)row.get(2))))).addMatch(m);
+            }
+            matchGroupings.add(m);
+            matches++;
+            if (matches >= 4) {
+                Game g = new Game(matchGroupings.get(0).teamNumber,matchGroupings);
+                matchGroupings = new LinkedList<Match>();
+                matches = 0;
             }
         }
         Rankings r = new Rankings("",teams);
@@ -72,7 +84,7 @@ class Spreadsheets {
         // r.getHighestAuto();
     }
 
-    private static int teamContains(LinkedList<Team> teams, int teamNum) {
+    public static int teamContains(int teamNum) {
         for (int i = 0; i < teams.size(); i++) {
             if (teams.get(i).getTeamNum() == teamNum) {
                 return i;
@@ -81,7 +93,7 @@ class Spreadsheets {
         return -1;
     }
 
-    public static void initialize() {
+    private static void initialize() {
         //Build a new authorized API service
         try {
             final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();

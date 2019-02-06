@@ -85,6 +85,13 @@ public class Rankings
             switch (sortType.toLowerCase()) {
                 case "auto points":
                 outputStr += team.toString();
+                break;
+                case "wins":
+                outputStr += " with " + team.wins + " wins";
+                break;
+                case "teleop":
+                outputStr += " with " + team.totalTeleopScore + " points in Teleop";
+                break;
             }
             outputStr += "\n";
         }

@@ -7,17 +7,19 @@ import java.util.LinkedList;
  */
 public class Match
 {
-    private int matchNumber,teamNumber,gold,silver,depot;
+    protected int matchNumber,teamNumber,gold,silver,depot;
     protected String position,orientation,goldPosition,endgame,comment;
     private LinkedList<String> autoTasks;
 
     protected int autoTotal, teleopTotal, scoreTotal;
+    
+    protected String allianceColor;
 
     /**
      * instantiates the match class variables given all of the values for the match
      * that have been parsed from the spreadsheet by the driver class
      */
-    public Match(int matchNumber, int teamNumber,String position,String orientation,String goldPos, LinkedList<String> autoTasks, int gold, int silver, int depot, String endGame, String comment)
+    public Match(int matchNumber, int teamNumber,String allianceColor, String position,String orientation,String goldPos, LinkedList<String> autoTasks, int gold, int silver, int depot, String endGame, String comment)
     {
         this.matchNumber = matchNumber;
         this.teamNumber = teamNumber; 
@@ -30,6 +32,7 @@ public class Match
         this.endgame = endGame; 
         this.comment = comment;
         this.autoTasks = autoTasks;
+        this.allianceColor = allianceColor.trim().toLowerCase();
         //by callig this method the autoTotal, teleopTotal, and scoreTotal 
         //variables will be instantiated
         scoreTotal = reportScore();
@@ -95,10 +98,5 @@ public class Match
      */
     private int reportTeleopScore() {
         return (gold * 5) + (silver * 5) + (depot * 2);
-    }
-    
-    public String getColor()
-    {
-        return "blue";
     }
 }
