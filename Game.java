@@ -20,6 +20,8 @@ public class Game
 
     public void runGame()
     {
+        if (matches.get(0).teamNumber == 5398 || matches.get(1).teamNumber == 5398 || matches.get(2).teamNumber == 5398 || matches.get(3).teamNumber == 5398)
+        Spreadsheets.occurances++;
         for(Match m: matches)
         {
             switch (m.allianceColor) {

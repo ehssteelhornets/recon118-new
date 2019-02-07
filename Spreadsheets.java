@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
 //Add libraries
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -46,9 +47,43 @@ class Spreadsheets {
     private static Sheets service = null;
     
     public static LinkedList<Team> teams;
+    
+    public static int occurances;
+    
+    public static void insertSorugateMatches() {
+        Scanner scan = new Scanner(System.in);
+        String data;
+        do {
+            data = scan.nextLine().toUpperCase();
+            if (!data.equals("STOP")) {
+                int matchNum = Integer.parseInt(data.substring(0,data.indexOf(" ")+1));
+                int teamNum = Integer.parseInt(data.substring(data.indexOf(" "),data.length()));
+                initialize();
+                List<List<Object>> cells = readCells("Sheet1!2:1000");
+                boolean cont = true;
+                int row = 0;
+                while (cont) {
+                    if (Integer.parseInt((String)cells.get(row).get(1))==matchNum) {
+                        if (Integer.parseInt((String)cells.get(row).get(2))==teamNum) {
+                            ArrayList<ArrayList<Object>> newText = new ArrayList<ArrayList<Object>>();
+                            ArrayList<Object> line = new ArrayList<Object>();
+                            line.add("skip");
+                            newText.add(line);
+                            //writeCells(
+                        } else {
+                            row += 1;
+                        }
+                    } else {
+                        row += 4;
+                    }
+                }
+            }
+        } while (!data.equals("STOP"));
+    }
 
     public static void main() {
         initialize();
+        occurances = 0;
         List<List<Object>> cells = readCells("Sheet1!2:1000");
         teams = new LinkedList<Team>();
         //keep every four matches grouped together to run the game class
@@ -82,6 +117,8 @@ class Spreadsheets {
         r.getWinner();
         r.getLowestTeamNumber();
         // r.getHighestAuto();
+        
+        System.out.println("\n"+occurances);
     }
 
     public static int teamContains(int teamNum) {
