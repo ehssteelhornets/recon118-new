@@ -104,4 +104,12 @@ public class Team
         totalScore += m.scoreTotal;
         matches.add(m);
     }
+    
+    public int getMatchTeleopAverage() {
+        return totalTeleopScore/matches.size();
+    }
+    
+    public int getMatchTotalAverage() {
+        return totalScore/matches.size();
+    }
 }

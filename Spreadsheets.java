@@ -114,11 +114,8 @@ class Spreadsheets {
         }
         Rankings r = new Rankings("",teams);
         r.getHighestTeleop();
+        r.getTopScorer();
         r.getWinner();
-        r.getLowestTeamNumber();
-        // r.getHighestAuto();
-        
-        System.out.println("\n"+occurances);
     }
 
     public static int teamContains(int teamNum) {

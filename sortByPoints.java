@@ -4,6 +4,6 @@ public class sortByPoints implements Comparator<Team>
 {
     public int compare(Team a,Team b)
     {
-        return b.totalScore - a.totalScore;
+        return b.getMatchTotalAverage() - a.getMatchTotalAverage();
     }
 }

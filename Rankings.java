@@ -90,7 +90,10 @@ public class Rankings
                 outputStr += " with " + team.wins + " wins";
                 break;
                 case "teleop":
-                outputStr += " with " + team.totalTeleopScore + " points in Teleop";
+                outputStr += " with an average of " + team.getMatchTeleopAverage() + " points in Teleop";
+                break;
+                case "total points":
+                outputStr += " with an average of " + team.getMatchTotalAverage() + " points per game";
                 break;
             }
             outputStr += "\n";
