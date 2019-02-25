@@ -112,4 +112,9 @@ public class Team
     public int getMatchTotalAverage() {
         return totalScore/matches.size();
     }
+    
+    public Set getGames()
+    {
+        return games;
+    }
 }

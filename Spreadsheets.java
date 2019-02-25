@@ -115,7 +115,10 @@ class Spreadsheets {
         Rankings r = new Rankings("",teams);
         r.getHighestTeleop();
         r.getTopScorer();
-        r.getWinner();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter team you would like to audit");
+        Auditor a = new Auditor();
+        a.auditTeam(scan.nextInt(),teams);
     }
 
     public static int teamContains(int teamNum) {
