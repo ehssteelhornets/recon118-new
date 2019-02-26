@@ -1,4 +1,4 @@
-package recon118;
+ 
 import java.util.LinkedList;
 public class Auditor
 {
@@ -11,6 +11,7 @@ public class Auditor
     public void auditTeam(int teamNumber, LinkedList<Team> teams)
     {
         Team temporary = teams.get(teamContains(teams,teamNumber));
+        games = temporary.getGames();
         System.out.println(temporary.toString() + "\n");
         System.out.println("\t Matches");
         for(Game g : games)

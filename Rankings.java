@@ -1,5 +1,3 @@
-package recon118;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -22,6 +20,12 @@ public class Rankings
         switch (sortType.toLowerCase()) {
             case "auto":
             Collections.sort(teams,new sortByAuto());
+            break;
+            case "average teleop":
+            Collections.sort(teams,new sortByAverageTeleop());
+            break;
+            case "average total points":
+            Collections.sort(teams,new sortByAveragePoints());
             break;
             case "teleop":
             Collections.sort(teams,new sortByTeleop());
@@ -52,9 +56,23 @@ public class Rankings
         return teams.get(1);
     }
 
+    public Team getAverageHighestTeleop()
+    {
+        sort("average teleop");
+        sendOutput();
+        return teams.get(1);
+    }
+
     public Team getTopScorer()
     {
         sort("total points");
+        sendOutput();
+        return teams.get(1);
+    }
+
+    public Team getAverageTopScorer()
+    {
+        sort("average total points");
         sendOutput();
         return teams.get(1);
     }
@@ -65,7 +83,7 @@ public class Rankings
         sendOutput();
         return teams.get(1);
     }
-    
+
     public Team getLowestTeamNumber()
     {
         sort("team number");
@@ -89,11 +107,17 @@ public class Rankings
                 case "wins":
                 outputStr += " with " + team.wins + " wins";
                 break;
-                case "teleop":
+                case "average teleop":
                 outputStr += " with an average of " + team.getMatchTeleopAverage() + " points in Teleop";
                 break;
-                case "total points":
+                case "teleop":
+                outputStr += " with " + team.getTeleop() + " total points in Teleop";
+                break;
+                case "average total points":
                 outputStr += " with an average of " + team.getMatchTotalAverage() + " points per game";
+                break;
+                case "total points":
+                outputStr += " with " + team.getTotalPoints() + " total points";
                 break;
             }
             outputStr += "\n";

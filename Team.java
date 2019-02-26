@@ -1,4 +1,3 @@
-package recon118;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -18,7 +17,7 @@ public class Team
     //Could be implemented as TreeSet
     //private Set<Match> matches = new TreeSet<Match>();
     protected LinkedList<Match> matches = new LinkedList<Match>();
-    protected Set <Game> games = new TreeSet<Game>();
+    protected LinkedList <Game> games = new LinkedList<Game>();
     protected int totalScore = 0,
     totalAutoScore = 0,
     totalTeleopScore = 0,
@@ -104,16 +103,31 @@ public class Team
         totalScore += m.scoreTotal;
         matches.add(m);
     }
-    
+
     public int getMatchTeleopAverage() {
         return totalTeleopScore/matches.size();
     }
-    
+
     public int getMatchTotalAverage() {
         return totalScore/matches.size();
     }
+
+    public int getTeleop()
+    {
+        return totalTeleopScore;
+    }
     
-    public Set getGames()
+    public int getTotalPoints()
+    {
+        return totalScore;
+    }
+
+    public void addGame(Game g)
+    {
+        games.add(g);
+    }
+
+    public LinkedList getGames()
     {
         return games;
     }

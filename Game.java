@@ -1,4 +1,4 @@
-package recon118;
+
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.LinkedList;
@@ -20,23 +20,21 @@ public class Game
 
     public void runGame()
     {
-        if (matches.get(0).teamNumber == 5398 || matches.get(1).teamNumber == 5398 || matches.get(2).teamNumber == 5398 || matches.get(3).teamNumber == 5398)
-        Spreadsheets.occurances++;
         for(Match m: matches)
         {
             switch (m.allianceColor) {
-                case "blue": blueGame(m);
-                case "red": blueGame(m);
+                case "blue": blueGame(m);break;
+                case "red": redGame(m);break;
             }
         }
-        if (blueScore > redScore) {
+        if (getBlueScore() > getRedScore()) {
             for (Integer num: blueTeams) {
                 Spreadsheets.teams.get(Spreadsheets.teamContains(num)).addWin();
             }
             for (Integer num: redTeams) {
                 Spreadsheets.teams.get(Spreadsheets.teamContains(num)).addLoss();
             }
-        } else if (redScore > blueScore) {
+        } else if (getRedScore() > getBlueScore()) {
             for (Integer num: redTeams) {
                 Spreadsheets.teams.get(Spreadsheets.teamContains(num)).addWin();
             }
@@ -70,6 +68,16 @@ public class Game
 
     public String getMatchScore()
     {
-        return blueScore + " - " + redScore;
+        return getBlueScore() + " - " + getRedScore();
+    }
+
+    public String toString()
+    {
+        String output = "\t" + getMatchScore() + "\n";
+        for(Match m:matches)
+        {
+            output += m.toString() + "\n\n";
+        }
+        return output;
     }
 }

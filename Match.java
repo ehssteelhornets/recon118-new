@@ -1,4 +1,4 @@
-package recon118;
+
 import java.util.LinkedList;
 /**
  * The match class records all of the data for a single team in a single match
@@ -11,8 +11,8 @@ public class Match
     protected String position,orientation,goldPosition,endgame,comment;
     private LinkedList<String> autoTasks;
 
-    protected int autoTotal, teleopTotal, scoreTotal;
-    
+    protected int autoTotal, teleopTotal, endgameTotal,scoreTotal;
+
     protected String allianceColor;
 
     /**
@@ -44,25 +44,11 @@ public class Match
      * 
      * Assigns values to the autoTotal and teleopTotal while running this method
      */
-    private int reportScore()
+    public int reportScore()
     {
-        int endgameTotal;
         autoTotal = reportAutoScore();
         teleopTotal = reportTeleopScore();
-        switch (endgame){
-            case "Hanging on Lander":
-            endgameTotal = 50;
-            break;
-            case "Parked Partially in Crater":
-            endgameTotal = 15;
-            break;
-            case "Parked Completely in Crater":
-            endgameTotal = 25;
-            break;
-            default:
-            endgameTotal = 0;
-            break;
-        }
+        endgameTotal = reportEndgame();
         //sums the total points of the match.
         return teleopTotal + endgameTotal + autoTotal;
     }
@@ -90,7 +76,27 @@ public class Match
             }
         }
         return autoTotal;
-    }   
+    } 
+
+    private int reportEndgame()
+    {
+        int sum = 0;
+        switch (endgame){
+            case "Hanging on Lander":
+            sum = 50;
+            break;
+            case "Parked Partially in Crater":
+            sum = 15;
+            break;
+            case "Parked Completely in Crater":
+            sum = 25;
+            break;
+            default:
+            sum = 0;
+            break;
+        }
+        return sum;
+    }
 
     /**
      * Scales the precollected values to their point totals 
@@ -98,5 +104,17 @@ public class Match
      */
     private int reportTeleopScore() {
         return (gold * 5) + (silver * 5) + (depot * 2);
+    }
+
+    public String toString()
+    { String output = "Team #: " + teamNumber + "\nTotal Points:" + reportScore() + "\nAlliance Color: " + allianceColor + "\nStarting Position: Started " + orientation + " on " + position + "\nWith Sample in Position:" + goldPosition;
+        output += "\nAuto Points: " + reportAutoScore() + "\nAuto Tasks:" + "";
+        for(String str:autoTasks)
+        {
+            output += str + ",";
+        }
+        output +="\nTeleOp Points: " + reportTeleopScore() + "\nGold Scored:" + gold + "\nSilver Scored:" + silver;
+        output += "\nEndgame Points: " + reportEndgame() + "\nEndgame Tasks: " + endgame+ "\nComments: " + comment + "\n";
+        return output;
     }
 }

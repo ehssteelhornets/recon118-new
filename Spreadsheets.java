@@ -1,4 +1,4 @@
-package recon118; 
+  
 
 import java.util.List;
 import java.util.LinkedList;
@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
+import java.util.Arrays;
 //Add libraries
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -93,9 +94,10 @@ class Spreadsheets {
             Team t = new Team("",Integer.parseInt((String)row.get(2)));
             LinkedList<String> autoTasks = new LinkedList<String>();
             //Ethan add array seperation code here
-            autoTasks.add("test");
+            String[] autonomous = ((String)row.get(7)).split(", ",0);
+            autoTasks.addAll(Arrays.asList(autonomous));
             Match m = null;
-            m = new Match(Integer.parseInt((String)row.get(1)),Integer.parseInt((String)row.get(2)),(String)row.get(3),(String)row.get(4),(String)row.get(5),(String)row.get(6),autoTasks,Integer.parseInt((String)row.get(8)),Integer.parseInt((String)row.get(9)),Integer.parseInt((String)row.get(10)),(String)row.get(10),(String)row.get(10));
+            m = new Match(Integer.parseInt((String)row.get(1)),Integer.parseInt((String)row.get(2)),(String)row.get(3),(String)row.get(4),(String)row.get(5),(String)row.get(6),autoTasks,Integer.parseInt((String)row.get(8)),Integer.parseInt((String)row.get(9)),Integer.parseInt((String)row.get(10)),(String)row.get(11),(String)row.get(11));
             if (teamContains(Integer.parseInt((String)row.get(2)))==-1) {
                 teams.add(new Team("",Integer.parseInt((String)row.get(2))));
                 teams.getLast().addMatch(m);
@@ -108,6 +110,10 @@ class Spreadsheets {
             matches++;
             if (matches >= 4) {
                 Game g = new Game(matchGroupings.get(0).teamNumber,matchGroupings);
+                for(Match match:matchGroupings)
+                {
+                    teams.get(teamContains(match.teamNumber)).addGame(g);
+                }
                 matchGroupings = new LinkedList<Match>();
                 matches = 0;
             }
