@@ -1,3 +1,5 @@
+package recon118;
+
    
 import java.util.Comparator;
 public class sortByAveragePoints implements Comparator<Team>

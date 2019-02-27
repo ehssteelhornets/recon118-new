@@ -13,5 +13,5 @@ comment5.target=com.google.api.client.auth.oauth2.Credential\ getCredentials(com
 comment5.text=\r\n\ Creates\ an\ authorized\ Credential\ object.\r\n\ @param\ HTTP_TRANSPORT\ The\ network\ HTTP\ Transport.\r\n\ @return\ An\ authorized\ Credential\ object.\r\n\ @throws\ IOException\ If\ the\ credentials.json\ file\ cannot\ be\ found.\r\n
 comment6.params=range
 comment6.target=java.util.List\ readCells(java.lang.String)
-comment6.text=\r\n\ Prints\ the\ names\ and\ majors\ of\ students\ in\ a\ sample\ spreadsheet\:\r\n
+comment6.text=\r\n\ Downloads\ the\ spreadsheet\ data\ from\ the\ range\ specified\r\n\ Returns\ a\ 2D\ Object\ array\ containing\ the\ data\r\n
 numComments=7
