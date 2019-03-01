@@ -1,4 +1,4 @@
-package recon118;
+ 
 
 import java.util.Comparator;
 public class sortByPoints implements Comparator<Team>
