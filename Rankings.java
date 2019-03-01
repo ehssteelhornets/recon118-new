@@ -116,7 +116,7 @@ public class Rankings
                 outputStr += " with " + team.getTeleop() + " total points in Teleop";
                 break;
                 case "average total points":
-                outputStr += " with an average of " + team.getMatchTotalAverage() + " points per game";
+                outputStr += " with an average of " + team.getMatchTotalAverage() + " points per game and a deviation of "  + team.getStandardDeviation();
                 break;
                 case "total points":
                 outputStr += " with " + team.getTotalPoints() + " total points";

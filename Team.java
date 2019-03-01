@@ -133,4 +133,13 @@ public class Team
     {
         return games;
     }
+    public double getStandardDeviation()
+    {
+        int sum = 0;
+        for(int i =0; i < matches.size();i++)
+        {
+            sum += Math.pow(getMatchTotalAverage() - matches.get(0).reportScore(),2);
+        }
+        return Math.sqrt((sum/matches.size()));
+    }
 }
