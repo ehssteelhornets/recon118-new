@@ -124,6 +124,7 @@ class Spreadsheets {
         Rankings r = new Rankings("",teams);
         r.getHighestTeleop();
         r.getTopScorer();
+        r.getAverageTopScorer();
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter team you would like to audit");
         Auditor a = new Auditor();
